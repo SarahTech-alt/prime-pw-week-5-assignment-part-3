@@ -80,27 +80,73 @@ for (let i =0; i<collection.length; i++){
 }
 */
 
-/*
 
+/*
 // Fifth attempt
 
-Created a new object within the function to add to the array, this is closer
+//Created a new object within the function to add to the array, this is closer
 
-let collection = [];
-
+let collection = []; //starts as empty array
 
 function addToCollection(a, b, c){
-  const album = {
+  const album = { //creating new object
     title: a,
     artist: b,
     yearPublished: c
   };
-  collection.push(album);
+  collection.push(album); //adding object to the end of collection
+  return album; //returns album
 }
 
-addToCollection('Who',"What",98); //adding first album to collection
-addToCollection("The Bobs","Yeahness", 67); //adding second album to collection
+console.log(addToCollection('Who',"What",98)); //logs adding first album to collection
+console.log(addToCollection("The Bobs","Yeahness", 67)); //logs adding second album to collection
 console.log(collection); // this shows array with multiple objects
-//console.log(collection.title); //This is undefined
-
+console.log(album.title); //This is undefined
 */
+
+/*
+
+//sixth attempt
+
+let collection = []; //creating empty array
+
+function addToCollection(title,artist,yearPublished){
+  const album = []; //creating empty object
+  album.push({title,artist,yearPublished}); //adding inputs to album
+  collection.push(album); //adding album to collection
+  return album; //returning album
+}
+
+console.log(addToCollection('Who',"What",98)); //logs adding first album to collection
+console.log(addToCollection("The Bobs","Yeahness", 67)); //logs adding second album to collection
+console.log(collection); // this shows array with multiple objects
+console.log(collection.title); //This is undefined
+*/
+
+//seventh attempt
+
+let collection = [];
+const album = {};
+
+function addToCollection(title,artist,yearPublished){
+  album.title = title;
+  album.artist = artist;
+  album.yearPublished = yearPublished;
+  collection.push(album);
+  return album;
+}
+
+console.log(addToCollection('Who',"What",98)); //logs adding first album to collection
+console.log(addToCollection("The Bobs","Yeahness", 67)); //logs adding second album to collection
+console.log(collection); // this shows array with multiple objects
+console.log(album.title);
+
+for (let i =0; i < collection.length; i++){
+  console.log(`For loop number ${i} the value checked is ${album[i]}`); //this shows is looping through letters, not full property names
+  if (album.title === "Who"){
+    console.log('The album exists');
+  }
+  else {
+    console.log('The album was not added to the collection');
+  }
+}
