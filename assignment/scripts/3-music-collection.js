@@ -123,8 +123,8 @@ console.log(collection); // this shows array with multiple objects
 console.log(collection.title); //This is undefined
 */
 
+/*
 //seventh attempt
-
 let collection = [];
 const album = {};
 
@@ -138,15 +138,20 @@ function addToCollection(title,artist,yearPublished){
 
 console.log(addToCollection('Who',"What",98)); //logs adding first album to collection
 console.log(addToCollection("The Bobs","Yeahness", 67)); //logs adding second album to collection
-console.log(collection); // this shows array with multiple objects
-console.log(album.title);
+console.log(collection); // this shows array with second album twice
+console.log(collection[1].title); //this shows the title of the second album
+
+
+//const keys = Object.keys(album); //converting properties to an array that can be iterated over
+//const values = Object.values(album); //converting values to an array that can be iterated over
 
 for (let i =0; i < collection.length; i++){
-  console.log(`For loop number ${i} the value checked is ${album[i]}`); //this shows is looping through letters, not full property names
-  if (album.title === "Who"){
+  console.log(`For loop number ${i} the value checked is ${collection[i].title}`); //this shows is looping through letters, not full property names
+  if (collection[i].title === "The Bobs"){
     console.log('The album exists');
   }
   else {
     console.log('The album was not added to the collection');
   }
 }
+*/
