@@ -81,7 +81,7 @@ for (let i =0; i<collection.length; i++){
 */
 
 
-/*
+
 // Fifth attempt
 
 //Created a new object within the function to add to the array, this is closer
@@ -97,13 +97,16 @@ function addToCollection(a, b, c){
   collection.push(album); //adding object to the end of collection
   return album; //returns album
 }
-
+console.log(collection.title);
 console.log(addToCollection('Who',"What",98)); //logs adding first album to collection
 console.log(addToCollection("The Bobs","Yeahness", 67)); //logs adding second album to collection
 console.log(collection); // this shows array with multiple objects
-console.log(album.title); //This is undefined
-*/
+//console.log(album.title); //Returns undefined
 
+const keys = Object.keys(collection); //converting properties to an array that can be iterated over
+const values = Object.values(collection); //converting values to an array that can be iterated over
+
+console.log(values);
 /*
 
 //sixth attempt
@@ -133,7 +136,7 @@ function addToCollection(title,artist,yearPublished){
   album.artist = artist;
   album.yearPublished = yearPublished;
   collection.push(album);
-  return album;
+  return collection;
 }
 
 console.log(addToCollection('Who',"What",98)); //logs adding first album to collection
