@@ -1,1 +1,4 @@
-console.log('***** Music Collection *****')
+console.log('***** Music Collection *****');
+
+//Creating an array to hold the collection
+let collection = [];
