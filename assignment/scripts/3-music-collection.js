@@ -48,17 +48,22 @@ function  findByArtist(artist){ //creating function taking in a string parameter
     if (artist === collection[i].artist){ //checks if the artist inputed into the function exists in the collection
       return true; //if the artist is in the collection the function returns true
     }
-    //return false; //if the artist does not exist in the collection the function returns false
-  } return false;
+  } return false; //if the artist does not exist in the collection the function returns false
 }
 findByArtist('Dancies');
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist("The")}.`);
 console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist("Dancies")}.`);
 
+function findByArtist2(artist){
+  for (let names in collection){
+    if (artist === collection[names].artist){
+      return true;
+    }
+  } return false;
+}
 
-
-
-
+console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist2("The")}.`);
+console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist2("Dancies")}.`);
 
 /*
 //Creating an array to hold the collection
