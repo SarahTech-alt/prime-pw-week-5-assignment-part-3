@@ -40,21 +40,21 @@ showCollection(collection);
   - Return the array with the matching results. If no results are found, return an empty array.
   */
 
-  console.log(collection[0].title);
+  console.log(collection[1].title);
 
-function  findByArtist(artist){
-  for (let item of collection){
-    console.log(item);
-    if (artist === collection.title){
-      console.log(true);
-    } else {
-      console.log(false);
+function  findByArtist(artist){ //creating function taking in a string parameter
+  for (let i=0; i<collection.length; i++){ //creating a variable to loop through each element of the array
+    console.log(collection[i].artist); //testing to make sure the loop is checking the artists and running through all values
+    if (artist === collection[i].artist){ //checks if the artist inputed into the function exists in the collection
+      return true; //if the artist is in the collection the function returns true
     }
-  }
+    //return false; //if the artist does not exist in the collection the function returns false
+  } return false;
 }
+findByArtist('Dancies');
+console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist("The")}.`);
+console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist("Dancies")}.`);
 
-console.log(findByArtist("The Bobs"));
-console.log(findByArtist("The Who"));
 
 
 
