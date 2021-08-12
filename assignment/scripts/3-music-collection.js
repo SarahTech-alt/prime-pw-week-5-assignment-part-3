@@ -15,18 +15,46 @@ function addToCollection(title,artist,yearPublished){
   return album;
 }
 
-addToCollection('Who', "What", 1998); //adding album to collection
-addToCollection("The Bobs", "Yeahness", 1967); //adding album to collection
-addToCollection("The Weevels", "Dancies", 2009); //adding album to collection
-addToCollection("Radical Singing", "The Singers", 2012); //adding album to collection
-addToCollection("Our First Album", "Newbs", 2018); //adding album to collection
+console.log(addToCollection('Who', "What", 1998)); //adding album to collection
+console.log(addToCollection("The Bobs", "Yeahness", 1967)); //adding album to collection
+console.log(addToCollection("The Weevels", "Dancies", 2009)); //adding album to collection
+console.log(addToCollection("Radical Singing", "The Singers", 2012)); //adding album to collection
+console.log(addToCollection("Our First Album", "Newbs", 2018)); //adding album to collection
 
+console.log(collection); // this shows array with added objects
 
-console.log(collection); // this shows array with second album twice
-console.log(collection[1].title); //this shows the title of the second album
-console.log(collection[0].title); //this shows the title of the first album
+function showCollection(array){
+  console.log(array.length);
+  for (let i=0; i<array.length; i++){
+    console.log(`${array[i].title} by ${array[i].artist} published in ${array[i].yearPublished}`);
+  }
+}
 
+showCollection(collection);
 
+/*
+- Add a function named `findByArtist`. This function should:
+  - Take in `artist` (a string) parameter
+  - Create an array to hold any results, empty to start
+  - Loop through the `collection` and add any objects with a matching artist to the array.
+  - Return the array with the matching results. If no results are found, return an empty array.
+  */
+
+  console.log(collection[0].title);
+
+function  findByArtist(artist){
+  for (let item of collection){
+    console.log(item);
+    if (artist === collection.title){
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  }
+}
+
+console.log(findByArtist("The Bobs"));
+console.log(findByArtist("The Who"));
 
 
 
