@@ -55,11 +55,13 @@ console.log(`This should return false  because there is no 'The' artist. Output 
 console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist("Dancies")}.`);
 
 function findByArtist2(artist){
-  for (let names in collection){
-    if (artist === collection[names].artist){
-      return true;
+  let listofArtists = [];
+  for (let names in collection){ //for each item in collection perform loop
+    if (artist === collection[names].artist){ //if the artist matches an artist in the collection then:
+      listofArtists.push(collection[names].artist); //return true
+      return listofArtists;
     }
-  } return false;
+  } return listofArtists; //if it doesn't match an artist return false
 }
 
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist2("The")}.`);
