@@ -1,4 +1,37 @@
 console.log('***** Music Collection *****');
+
+//cleaned up version of the 7th attempt that did what is asked for. The other attempts are shown below.
+
+collection = [];
+
+
+function addToCollection(title,artist,yearPublished){
+  const album = { //created an empty object to store properties
+  title: title, //created a property called title for the album that will equal the 'title' input
+  artist: artist, //created a property called artist for the album that will equal the 'artist' input
+  yearPublished: yearPublished //created a property called yearPublished for the album that will equal the 'yearPublished' input
+  };
+  collection.push(album);
+  return album;
+}
+
+addToCollection('Who', "What", 1998); //adding album to collection
+addToCollection("The Bobs", "Yeahness", 1967); //adding album to collection
+addToCollection("The Weevels", "Dancies", 2009); //adding album to collection
+addToCollection("Radical Singing", "The Singers", 2012); //adding album to collection
+addToCollection("Our First Album", "Newbs", 2018); //adding album to collection
+
+
+console.log(collection); // this shows array with second album twice
+console.log(collection[1].title); //this shows the title of the second album
+console.log(collection[0].title); //this shows the title of the first album
+
+
+
+
+
+
+
 /*
 //Creating an array to hold the collection
 let collection1 = [];
@@ -81,7 +114,7 @@ for (let i =0; i<collection.length; i++){
 */
 
 
-
+/*
 // Fifth attempt
 
 //Created a new object within the function to add to the array, this is closer
@@ -107,6 +140,8 @@ const keys = Object.keys(collection); //converting properties to an array that c
 const values = Object.values(collection); //converting values to an array that can be iterated over
 
 console.log(values);
+*/
+
 /*
 
 //sixth attempt
@@ -127,34 +162,34 @@ console.log(collection.title); //This is undefined
 */
 
 /*
-//seventh attempt
-let collection = [];
-const album = {};
+//seventh attempt...This is the one that does what I want ...
+collection = [];
+
 
 function addToCollection(title,artist,yearPublished){
-  album.title = title;
-  album.artist = artist;
-  album.yearPublished = yearPublished;
+  const album = {}; //created an empty object to store properties
+  album.title = title; //created a property called title for the album that will equal the 'title' input
+  album.artist = artist; //created a property called artist for the album that will equal the 'artist' input
+  album.yearPublished = yearPublished; //created a property called yearPublished for the album that will equal the 'yearPublished' input
   collection.push(album);
-  return collection;
+  return album;
 }
 
 console.log(addToCollection('Who',"What",98)); //logs adding first album to collection
 console.log(addToCollection("The Bobs","Yeahness", 67)); //logs adding second album to collection
 console.log(collection); // this shows array with second album twice
 console.log(collection[1].title); //this shows the title of the second album
+console.log(collection[0].title); //this shows the title of the first album
 
-
-//const keys = Object.keys(album); //converting properties to an array that can be iterated over
-//const values = Object.values(album); //converting values to an array that can be iterated over
-
+//Testing to see if I can find a specific album title by iterating over the collection
 for (let i =0; i < collection.length; i++){
-  console.log(`For loop number ${i} the value checked is ${collection[i].title}`); //this shows is looping through letters, not full property names
-  if (collection[i].title === "The Bobs"){
-    console.log('The album exists');
+  console.log(`For loop number ${i} the value checked is ${collection[i].title}`); //Logging each iteration to observe outcome
+  if (collection[i].title === "The Bobs"){ //look to see if there is a title 'The Bobs'
+    console.log('The album exists'); //There is so this is the output
   }
   else {
     console.log('The album was not added to the collection');
   }
 }
+
 */
