@@ -65,8 +65,30 @@ function findByArtist2(artist){
  return listofArtists;
 }
 
+function  findByArtist3(artist){
+  let listofArtists = [];
+  for (let item of collection){
+    console.log(collection);
+    if (item.artist === artist){
+      listofArtists.push(artist);
+    }
+  }
+  return listofArtists;
+}
+
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist2("The")}.`);
 console.log(findByArtist2('Dancies'));
+console.log(findByArtist3('Dancies'));
+
+function returnNumbers( array ) {
+  let newArray = [];
+  for (let number of array){
+    if (number > 0){
+      newArray.push(number);
+    }
+  }
+  return newArray;
+}
 /*
 //Creating an array to hold the collection
 let collection1 = [];
