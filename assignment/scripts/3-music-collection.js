@@ -20,6 +20,7 @@ console.log(addToCollection("The Bobs", "Yeahness", 1967)); //adding album to co
 console.log(addToCollection("The Weevels", "Dancies", 2009)); //adding album to collection
 console.log(addToCollection("Radical Singing", "The Singers", 2012)); //adding album to collection
 console.log(addToCollection("Our First Album", "Newbs", 2018)); //adding album to collection
+console.log(addToCollection("The Weevels 2", "Dancies", 2013));
 
 console.log(collection); // this shows array with added objects
 
@@ -56,17 +57,16 @@ console.log(`This should return true because there is a 'Dancies' artist. Output
 
 function findByArtist2(artist){
   let listofArtists = [];
-  for (let names in collection){ //for each item in collection perform loop
-    if (artist === collection[names].artist){ //if the artist matches an artist in the collection then:
-      listofArtists.push(collection[names].artist); //return true
-      return listofArtists;
+  for (let i=0; i<collection.length; i++){
+    if (artist === collection[i].artist){
+      listofArtists.push(artist);
     }
-  } return listofArtists; //if it doesn't match an artist return false
+  }
+ return listofArtists;
 }
 
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist2("The")}.`);
-console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist2("Dancies")}.`);
-
+console.log(findByArtist2('Dancies'));
 /*
 //Creating an array to hold the collection
 let collection1 = [];
