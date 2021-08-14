@@ -25,7 +25,7 @@ console.log(addToCollection("The Weevels 2", "Dancies", 2013)); //added an album
 console.log(collection); // this shows array with added objects
 
 function showCollection( collectionName ){ //creating function to take the collection name as an input
-  console.log(collectionName.length); //checking the length of the array to ensure correct iteration
+  //console.log(collectionName.length); //checking the length of the array to ensure correct iteration
   for (let i=0; i<collectionName.length; i++){ //intializing loop
     console.log(`${collectionName[i].title} by ${collectionName[i].artist} published in ${collectionName[i].yearPublished}`); //outputing requested information
   }
@@ -44,29 +44,31 @@ showCollection(collection); //running the show collection function on our collec
 console.log(collection[1].title); //testing how to access the required object attribute
 
 
-//Function not assigned, shows whether an artist exists in the collection, 
+//Function not assigned, shows whether an artist exists in the collection,
 function  findByArtist( artist ){ //creating function taking in a string parameter
   for (let i=0; i<collection.length; i++){ //creating a variable to loop through each element of the array
-    console.log(collection[i].artist); //testing to make sure the loop is checking the artists and running through all values
+    // console.log(collection[i].artist); //testing to make sure the loop is checking the artists and running through all values
     if (artist === collection[i].artist){ //checks if the artist inputed into the function exists in the collection
       return true; //if the artist is in the collection the function returns true, stops after finding one instance of true
     }
   } return false; //if the artist does not exist in the collection the function returns false
 }
-console.log(findByArtist('Dancies'));
+console.log(findByArtist('Dancies')); //logs true
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist("The")}.`);
 console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist("Dancies")}.`);
 
-function findByArtist2(artist){
-  let listofArtists = [];
-  for (let i=0; i<collection.length; i++){
-    if (artist === collection[i].artist){
-      listofArtists.push(artist);
+//Assigned function to push artists searched for into an array if they exits in the collection
+function findByArtist2(artist){ //initializing function to input artist to search for
+  let listofArtists = []; //initializing empty array to hold results
+  for (let i=0; i<collection.length; i++){ //initializing loop
+    if (artist === collection[i].artist){ //checking each object of the collection with the attribute artist to check for matches
+      listofArtists.push(artist); //adding matches to the array created within the function
     }
   }
- return listofArtists;
+ return listofArtists; //returns the array with listed artists if any were found, if not returns an empty array
 }
 
+//Second approach to assigned function
 function  findByArtist3(artist){
   let listofArtists = [];
   for (let item of collection){
@@ -79,8 +81,8 @@ function  findByArtist3(artist){
 }
 
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist2("The")}.`);
-console.log(findByArtist2('Dancies'));
-console.log(findByArtist3('Dancies'));
+console.log(findByArtist2('Dancies')); //comparing output of the two approaches, should return an array with two instances of the artist
+console.log(findByArtist3('Dancies')); //comparing output of the two approaches, should return an array with two instances of the artist
 
 function returnNumbers( array ) {
   let newArray = [];
