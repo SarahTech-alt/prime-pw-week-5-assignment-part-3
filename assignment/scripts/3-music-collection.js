@@ -11,8 +11,8 @@ function addToCollection(title,artist,yearPublished){
   artist: artist, //created a property called artist for the album that will equal the 'artist' input
   yearPublished: yearPublished //created a property called yearPublished for the album that will equal the 'yearPublished' input
   };
-  collection.push(album);
-  return album;
+  collection.push(album); //adding album to the end of the collection array
+  return album; //returning album
 }
 
 console.log(addToCollection('Who', "What", 1998)); //adding album to collection
@@ -20,18 +20,18 @@ console.log(addToCollection("The Bobs", "Yeahness", 1967)); //adding album to co
 console.log(addToCollection("The Weevels", "Dancies", 2009)); //adding album to collection
 console.log(addToCollection("Radical Singing", "The Singers", 2012)); //adding album to collection
 console.log(addToCollection("Our First Album", "Newbs", 2018)); //adding album to collection
-console.log(addToCollection("The Weevels 2", "Dancies", 2013));
+console.log(addToCollection("The Weevels 2", "Dancies", 2013)); //added an album with the same artist as another album
 
 console.log(collection); // this shows array with added objects
 
-function showCollection(array){
-  console.log(array.length);
-  for (let i=0; i<array.length; i++){
-    console.log(`${array[i].title} by ${array[i].artist} published in ${array[i].yearPublished}`);
+function showCollection( collectionName ){ //creating function to take the collection name as an input
+  console.log(collectionName.length); //checking the length of the array to ensure correct iteration
+  for (let i=0; i<collectionName.length; i++){ //intializing loop
+    console.log(`${collectionName[i].title} by ${collectionName[i].artist} published in ${collectionName[i].yearPublished}`); //outputing requested information
   }
 }
 
-showCollection(collection);
+showCollection(collection); //running the show collection function on our collection array
 
 /*
 - Add a function named `findByArtist`. This function should:
@@ -41,17 +41,19 @@ showCollection(collection);
   - Return the array with the matching results. If no results are found, return an empty array.
   */
 
-  console.log(collection[1].title);
+console.log(collection[1].title); //testing how to access the required object attribute
 
-function  findByArtist(artist){ //creating function taking in a string parameter
+
+//Function not assigned, shows whether an artist exists in the collection, 
+function  findByArtist( artist ){ //creating function taking in a string parameter
   for (let i=0; i<collection.length; i++){ //creating a variable to loop through each element of the array
     console.log(collection[i].artist); //testing to make sure the loop is checking the artists and running through all values
     if (artist === collection[i].artist){ //checks if the artist inputed into the function exists in the collection
-      return true; //if the artist is in the collection the function returns true
+      return true; //if the artist is in the collection the function returns true, stops after finding one instance of true
     }
   } return false; //if the artist does not exist in the collection the function returns false
 }
-findByArtist('Dancies');
+console.log(findByArtist('Dancies'));
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist("The")}.`);
 console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist("Dancies")}.`);
 
