@@ -134,6 +134,9 @@ console.log(search('The Whos', 19)); //album year does not match, returns empty 
 console.log(search('The Whos')); //missing search parameter input, returns collection
 console.log(search("Dancies", 2013)); //both parameters match, contains the album found
 
+
+// Stretch goal #3. Submitting for now, not complete
+
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
 //   - Update `search` to allow a `trackName` search criteria.
@@ -150,49 +153,41 @@ console.log(search("Dancies", 2013)); //both parameters match, contains the albu
 
 //updated add to collection function
 
-let collection2 = [];
+// let collection2 = [];
+//
+// function addToCollection2( title, artist, yearPublished, tracks ){
+//   const album = { //created an object to store properties
+//   title: title, //created a property called title for the album that will equal the 'title' input
+//   artist: artist, //created a property called artist for the album that will equal the 'artist' input
+//   yearPublished: yearPublished, //created a property called yearPublished for the album that will equal the 'yearPublished' input
+//   tracks : tracks //created a property tracks to hold array of tracks
+//   };
+//   collection2.push(album); //adding album to the end of the collection array
+//   return album; //returning album
+// }
+//
+// console.log(addToCollection2( 'Album Title', 'Artist Name', 1958, [['The first song', '24:35'], ['The second song', '26:3'], ['The third song', '29:4']]));
+// console.log(collection2[0].tracks);
+//
+// for (let i = 0; i <collection2.length; i++){
+//   console.log(collection2[i].tracks);
+// }
+//
+// function search2( artist, year, track ){
+//   if (typeof artist === "undefined" || typeof year === "undefined" || typeof track === "undefined"){
+//     return collection2; //if a parameter is not entered returns the collection
+//   }
+//   collectionMatch = []; //empty array to hold results
+//   for (let items of collection2){ //loops through items in the collection
+//     if (items.artist === artist && items.year === year && items.track === track){ //checks if both the artist and the year match
+//       collectionMatch.push(items); //if match found adds to collectionMatch array
+//     }
+//   } return collectionMatch; //returns empty array if matching album is not found, otherwise adds to the collectionMatch array
+// }
 
-function addToCollection2( title, artist, yearPublished, tracks ){
-  const album = { //created an object to store properties
-  title: title, //created a property called title for the album that will equal the 'title' input
-  artist: artist, //created a property called artist for the album that will equal the 'artist' input
-  yearPublished: yearPublished, //created a property called yearPublished for the album that will equal the 'yearPublished' input
-  tracks : tracks //created a property tracks to hold array of tracks
-  };
-  collection2.push(album); //adding album to the end of the collection array
-  return album; //returning album
-}
-
-console.log(addToCollection2( 'This is a title', 'This is an artist', 1958, [['The first song', '24:35'], ['The second song', '26:3'], ['The third song', '29:4']]));
-console.log(collection2[0].tracks); //displaying updated collection name
-console.log(collection2.artist);
-
-/*
-function search( artist, year, track ){
-  if (typeof artist === "undefined" || typeof year === "undefined" || typeof track === "undefined"){
-    return collection2; //if a parameter is not entered returns the collection
-  }
-  collectionMatch = []; //empty array to hold results
-  for (let items of collection2){ //loops through items in the collection
-    if (items.artist === artist && items.year === year && items.track === track){ //checks if both the artist and the year match
-      collectionMatch.push(items); //if match found adds to collectionMatch array
-    }
-  } return collectionMatch; //returns empty array if matching album is not found, otherwise adds to the collectionMatch array
-}
-
-function showCollection2( collectionName ){ //creating function to take the collection name as an input
-  console.log(collectionName.length); //logging the number of items in the collection
-  for (let i=0; i<collectionName.length; i++){ //intializing loop
-    console.log(`${collectionName[i].title} by ${collectionName[i].artist} published in ${collectionName[i].yearPublished} and has tracks ${collectionName[i].track[0]}`); //outputing requested information
-  }
-}
-
-showCollection2(collection2); //running the show collection function on our collection array
-
-*/
 
 /*
-Commented out section contains tests and different attempts to create desired functions
+Commented out section contains tests and different attempts to create desired functions for assigned problems
 
 //Creating an array to hold the collection
 let collection1 = [];
