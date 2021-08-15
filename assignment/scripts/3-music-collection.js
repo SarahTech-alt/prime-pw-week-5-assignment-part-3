@@ -1,9 +1,6 @@
 console.log('***** Music Collection *****');
 
-//cleaned up version of the 7th attempt that did what is asked for. The other attempts are shown below.
-
 collection = [];
-
 
 function addToCollection(title,artist,yearPublished){
   const album = { //created an empty object to store properties
@@ -58,7 +55,7 @@ console.log(`This should return false  because there is no 'The' artist. Output 
 console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist("Dancies")}.`);
 
 //Assigned function to push artists searched for into an array if they exits in the collection
-function findByArtist2(artist){ //initializing function to input artist to search for
+function findByArtist2( artist ){ //initializing function to input artist to search for
   let listofArtists = []; //initializing empty array to hold results
   for (let i=0; i<collection.length; i++){ //initializing loop
     if (artist === collection[i].artist){ //checking each object of the collection with the attribute artist to check for matches
@@ -68,32 +65,32 @@ function findByArtist2(artist){ //initializing function to input artist to searc
  return listofArtists; //returns the array with listed artists if any were found, if not returns an empty array
 }
 
+console.log(findByArtist2('Dancies')); //should return an array with two instances of the artist
+
+
 //Second approach to assigned function
-function  findByArtist3(artist){
-  let listofArtists = [];
-  for (let item of collection){
-    console.log(collection);
-    if (item.artist === artist){
-      listofArtists.push(artist);
+function  findByArtist3( artist ){
+  let listofArtists = []; //create empty array to hold results
+  for (let items of collection){ //for each item (object) in the collection
+    console.log(collection); //verifying loop is correct
+    if (items.artist === artist){ //if the first item's artist attribute matches the inputted artist
+      listofArtists.push(artist); //add to the end of the new array
     }
   }
-  return listofArtists;
+  return listofArtists; //return the array with matches or empty if there was no match
 }
 
-console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist2("The")}.`);
-console.log(findByArtist2('Dancies')); //comparing output of the two approaches, should return an array with two instances of the artist
-console.log(findByArtist3('Dancies')); //comparing output of the two approaches, should return an array with two instances of the artist
+console.log(findByArtist3('Dancies')); //should return an array with two instances of the artist
 
-function returnNumbers( array ) {
-  let newArray = [];
-  for (let number of array){
-    if (number > 0){
-      newArray.push(number);
-    }
-  }
-  return newArray;
-}
+
+
+
+
+
+
 /*
+Commented out section contains tests and different attempts to create desired functions
+
 //Creating an array to hold the collection
 let collection1 = [];
 
