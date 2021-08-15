@@ -1,9 +1,18 @@
 console.log('***** Music Collection *****');
 
+//Create a variable `collection` that starts as an empty array
+
 collection = [];
 
-function addToCollection(title,artist,yearPublished){
-  const album = { //created an empty object to store properties
+
+// - Add a function named `addToCollection`. This function should:
+//   - Take in the album's `title`, `artist`, `yearPublished` as input parameters
+//   - Create a new object having the above properties
+//   - Add the new object to the end of the `collection` array
+//   - Return the newly created object
+
+function addToCollection( title, artist, yearPublished ){
+  const album = { //created an object to store properties
   title: title, //created a property called title for the album that will equal the 'title' input
   artist: artist, //created a property called artist for the album that will equal the 'artist' input
   yearPublished: yearPublished //created a property called yearPublished for the album that will equal the 'yearPublished' input
@@ -12,7 +21,12 @@ function addToCollection(title,artist,yearPublished){
   return album; //returning album
 }
 
-console.log(addToCollection('Who', "What", 1998)); //adding album to collection
+// - Test the `addToCollection` function:
+//   - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
+//   - Console.log each album as added using the returned value.
+//   - After all are added, console.log the `collection` array.
+
+console.log(addToCollection('Who', "What", 2012)); //adding album to collection
 console.log(addToCollection("The Bobs", "Yeahness", 1967)); //adding album to collection
 console.log(addToCollection("The Weevels", "Dancies", 2009)); //adding album to collection
 console.log(addToCollection("Radical Singing", "The Singers", 2012)); //adding album to collection
@@ -21,8 +35,14 @@ console.log(addToCollection("The Weevels 2", "Dancies", 2013)); //added an album
 
 console.log(collection); // this shows array with added objects
 
+
+// - Add a function named `showCollection`. This function should:
+//   - Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
+//   - Console.log the number of items in the array.
+//   - Loop over the array and console.log each album's information formatted like: `TITLE by ARTIST, published in YEAR`.
+
 function showCollection( collectionName ){ //creating function to take the collection name as an input
-  //console.log(collectionName.length); //checking the length of the array to ensure correct iteration
+  console.log(collectionName.length); //logging the number of items in the collection
   for (let i=0; i<collectionName.length; i++){ //intializing loop
     console.log(`${collectionName[i].title} by ${collectionName[i].artist} published in ${collectionName[i].yearPublished}`); //outputing requested information
   }
@@ -38,10 +58,11 @@ showCollection(collection); //running the show collection function on our collec
   - Return the array with the matching results. If no results are found, return an empty array.
   */
 
+/* Test
 console.log(collection[1].title); //testing how to access the required object attribute
 
+This function was not assigned, shows whether an artist exists in the collection,
 
-//Function not assigned, shows whether an artist exists in the collection,
 function  findByArtist( artist ){ //creating function taking in a string parameter
   for (let i=0; i<collection.length; i++){ //creating a variable to loop through each element of the array
     // console.log(collection[i].artist); //testing to make sure the loop is checking the artists and running through all values
@@ -53,35 +74,37 @@ function  findByArtist( artist ){ //creating function taking in a string paramet
 console.log(findByArtist('Dancies')); //logs true
 console.log(`This should return false  because there is no 'The' artist. Output is ${findByArtist("The")}.`);
 console.log(`This should return true because there is a 'Dancies' artist. Output is ${findByArtist("Dancies")}.`);
+*/
 
 //Assigned function to push artists searched for into an array if they exits in the collection
 function findByArtist2( artist ){ //initializing function to input artist to search for
   let listofArtists = []; //initializing empty array to hold results
   for (let i=0; i<collection.length; i++){ //initializing loop
     if (artist === collection[i].artist){ //checking each object of the collection with the attribute artist to check for matches
-      listofArtists.push(artist); //adding matches to the array created within the function
+      listofArtists.push(collection[i]); //adding matches to the array created within the function
     }
   }
  return listofArtists; //returns the array with listed artists if any were found, if not returns an empty array
 }
 
-console.log(findByArtist2('Dancies')); //should return an array with two instances of the artist
+console.log(findByArtist2('Dancies')); //should return an array with two objects with the same artist
+console.log(findByArtist2('What')); //should return an array with one object of the artist
 
 
 //Second approach to assigned function
 function  findByArtist3( artist ){
   let listofArtists = []; //create empty array to hold results
   for (let items of collection){ //for each item (object) in the collection
-    console.log(collection); //verifying loop is correct
+    //console.log(collection); //verifying loop is correct
     if (items.artist === artist){ //if the first item's artist attribute matches the inputted artist
-      listofArtists.push(artist); //add to the end of the new array
+      listofArtists.push(items); //add to the end of the new array
     }
   }
   return listofArtists; //return the array with matches or empty if there was no match
 }
 
 console.log(findByArtist3('Dancies')); //should return an array with two instances of the artist
-
+console.log(findByArtist3('What')); //should return an array with one object of the artist
 
 
 
