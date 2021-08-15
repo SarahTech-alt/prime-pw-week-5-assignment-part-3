@@ -89,7 +89,7 @@ function findByArtist2( artist ){ //initializing function to input artist to sea
 
 console.log(findByArtist2('Dancies')); //should return an array with two objects with the same artist
 console.log(findByArtist2('What')); //should return an array with one object of the artist
-
+console.log(findByArtist2('The White Stripes')); //this is not in the collection, should return empty array
 
 //Second approach to assigned function
 function  findByArtist3( artist ){
@@ -105,10 +105,34 @@ function  findByArtist3( artist ){
 
 console.log(findByArtist3('Dancies')); //should return an array with two instances of the artist
 console.log(findByArtist3('What')); //should return an array with one object of the artist
+console.log(findByArtist3('The White Stripes')); //this is not in the collection, should return empty array
 
+//STRETCH GOALS
+// - Create a function called `search`. This function should:
+//   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
+//   ```
+//   { artist: 'Ray Charles', year: 1957 }
+//   ```
+//   - The returned output from `search` should meet these requirements:
+//     - Return a new array of all items in the `collection` matching *all* of the search criteria.
+//     - If no results are found, return an empty array.
+//     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
 
+function search( artist, year){
+  if (typeof artist === "undefined" || typeof year === "undefined"){
+    return collection; //if a parameter is not entered returns the collection
+  }
+  collectionMatch = []; //empty array to hold results
+  for (let items of collection){ //loops through items in the collection
+    if (items.artist === artist && items.year === year){ //checks if both the artist and the year match
+      collectionMatch.push(items); //if match found adds to collectionMatch array
+    }
+  } return collectionMatch; //returns empty array if matching album is not found, otherwise adds to the collectionMatch array
+}
 
-
+console.log(search('The Whos', 19)); //album year does not match, returns empty array
+console.log(search('The Whos')); //missing search parameter input, returns collection
+console.log(search("Dancies", 2013)); //both parameters match, contains the album found
 
 
 /*
