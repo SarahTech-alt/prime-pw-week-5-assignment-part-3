@@ -150,6 +150,39 @@ console.log(search("Dancies", 2013)); //both parameters match, contains the albu
 //     1. NAME: DURATION
 //     2. NAME: DURATION
 // ```
+let stretchGoalCollection = [];
+
+function addToStretchCollection( title, artist, yearPublished, tracks ){
+  const album = { //created an object to store properties
+  title: title, //created a property called title for the album that will equal the 'title' input
+  artist: artist, //created a property called artist for the album that will equal the 'artist' input
+  yearPublished: yearPublished,
+  tracks: tracks //created a property called yearPublished for the album that will equal the 'yearPublished' input
+  };
+  stretchGoalCollection.push(album); //adding album to the end of the collection array
+  return album; //returning album
+}
+
+console.log(addToStretchCollection('Title', 'Artist', 1952, [{name: 'First Song', duration: '24:38'}, {name: 'Second Song', duration: '3:42'}]));
+console.log(addToStretchCollection('Title 2', 'Artist 2', 1942, [{name: 'My Song', duration: '12:38'}, {name: 'My Song 2', duration: '7:42'}]));
+console.log(addToStretchCollection('Album Title 3', 'Artist Name 3', 2002, [{name: 'My Tune', duration: '0:38'}, {name: 'My Tune 2', duration: '1:42'}]));
+
+
+function showStretchCollection( collectionName ){
+  for (let album of collectionName){
+    console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}:`); //logs the information for each item in colleciton
+    //console.log(album.tracks.length); //checking
+   for (let i=0; i<album.tracks.length; i++){ //initializing loop for items of tracks array for each album in colleciton
+     //console.log(`This is loop ${i}`); //checking loop execution
+     let trackName = album.tracks[i].name; //checking call is correct
+     let trackLength = album.tracks[i].duration;
+     console.log(` ${i+1}. ${trackName}: ${trackLength}`); //logs track number, name of track and duration of track for each track within album of collection
+   }
+  }
+}
+
+showStretchCollection(stretchGoalCollection);
+
 
 //updated add to collection function
 
